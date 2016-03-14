@@ -10,16 +10,16 @@ import React, {
   Text,
   View
 } from 'react-native';
-const SearchPage = require('./app/components/SearchPage');
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import welcome from './app/components/welcome';
+const store = createStore(reducer);
 class reduxbeerapp extends Component {
   render() {
     return (
-      <React.NavigatorIOS style={styles.container}
-                          initialRoute={{
-                            title: 'Beers',
-                            component: SearchPage
-                          }}
-                          />
+      <Provider store={store}>
+        <CounterApp />
+      </Provider>
     );
 
   }
